@@ -7,6 +7,6 @@ It's my first script, don't hesitate to complete it and make it much better.
 
 Main modification to do are : Regex for domain, case where there is no domain.
 
-You can test the tool here : https://dnslookup.hqweb.com
+You can test the tool here : https://outils.hqweb.com/dns-lookup/
 
 Build on Bootstrap.
