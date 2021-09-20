@@ -10,3 +10,5 @@ Main modification to do are : Regex for domain, case where there is no domain.
 You can test the tool here : https://outils.hqweb.com/dns-lookup/
 
 Build on Bootstrap.
+
+![Simple DNS Lookup](https://outils.hqweb.com/dns-lookup/simple-dns-lookup.png)
