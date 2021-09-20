@@ -103,7 +103,7 @@
                     <tr>
                         <td class="vert-align text-center"><h4><span class="label label-info">AAAA</span></h4></td>
                             <?php $result_aaaa = empty($dns_aaaa); if($result_aaaa != null){ ?> <!-- IF NO RECORD -->
-                        <td class="vert-align text-center">/</td>
+                        <td class="vert-align text-center">NA</td>
                         <td class="warning"><h4>No record</h4></td>
                             <?php } else { ?> <!-- ELSE NO RECORD -->
                         <td class="vert-align text-center"><?php echo($dns_aaaa[0]['ttl']); ?></td>
