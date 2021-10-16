@@ -8,9 +8,9 @@
         <meta name="author" content="HQWEB">
 
         <title>Simple DNS Lookup</title>
-
-        <!-- Custom styles for this template -->
-        <link href="style.css" rel="stylesheet">
+        
+        <link href="bootstrap.min.css" rel="stylesheet">        
+        <link href="style.css" rel="stylesheet"><!-- Custom styles for this template -->
     </head>
     <body>
         <div class="container">
