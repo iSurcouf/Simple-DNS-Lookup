@@ -28,7 +28,7 @@
             <div class="jumbotron">
                 <form action="" method="post">
                     <div class="form-group">
-                        <input class="form-control input-lg text-center" name ="domain" type="text" placeholder="https://www.domain.com/page.html or domain.com" requirerd>
+                        <input class="form-control input-lg text-center" name ="domain" type="text" placeholder="https://www.domain.com/page.html or domain.com" value="<?php echo($_POST['domain']); requirerd>
                         <button type="submit" name="submit" class="btn btn-primary btn-lg">Lookup</button>
                     </div>
                 </form>
@@ -81,8 +81,23 @@
                             foreach($dns_a as $value)
                                 {
                                     ?>	<h4>
+                                            <!-- IP API : https://ip-api.com/docs/api:json#test -->
                                             <?php
-                                                echo($value['ip']);
+                                                $ipapi = file_get_contents('http://ip-api.com/json/' . $value['ip'] . '?fields=4195842');
+                                                $ipapidc = json_decode($ipapi, true);
+                                                $country_code_flag = $ipapidc['countryCode']; // Uppercase
+                                                echo mb_convert_encoding( '&#' . ( 127397 + ord( $country_code_flag[0] ) ) . ';', 'UTF-8', 'HTML-ENTITIES');
+                                                echo mb_convert_encoding( '&#' . ( 127397 + ord( $country_code_flag[1] ) ) . ';', 'UTF-8', 'HTML-ENTITIES');
+                                                echo(
+                                                    " "
+                                                    . $value['ip']
+                                                    . " | <b>ISP</b> "
+                                                    . $ipapidc['isp']
+                                                    . " | <b>ORG</b> "
+                                                    . $ipapidc['org']
+                                                    . " | <b>ASNAME</b> "
+                                                    . $ipapidc['asname']
+                                                );
                                             ?>
                                         </h4>
                         <?php } ?>
