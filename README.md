@@ -11,4 +11,4 @@ You can test the tool here : https://outils.hqweb.com/dns-lookup/
 
 Build on Bootstrap.
 
-![Simple DNS Lookup](https://outils.hqweb.com/dns-lookup/simple-dns-lookup.png)
+![Simple DNS Lookup](https://outils.hqweb.com/dns-lookup/simple-dns-lookup-1.png)
