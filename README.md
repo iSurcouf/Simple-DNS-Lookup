@@ -5,7 +5,7 @@ This project is my first creation on GitHub. I have created myself this tools fo
 
 It's my first script, don't hesitate to complete it and make it much better.
 
-Main modification to do are : Regex for domain, case where there is no domain.
+Main modifications to do are : Regex for domain, case where there is no domain.
 
 You can test the tool here : https://outils.hqweb.com/dns-lookup/
 
