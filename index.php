@@ -77,8 +77,15 @@
                 $dns_aaaa = dns_get_record($domain, DNS_AAAA);
                 $dns_aaaa_ttl = $dns_aaaa[0]['ttl'];
                 
-                // Page URL
-                $page_url_domain = $_SERVER['HTTP_REFERER'] . "?domain=" . $domain;
+                // Page URL : check if "?domain=" is in the URL to adapt http_referer content
+                if( (strpos($_SERVER['HTTP_REFERER'], '?domain=') !== false) )
+                    {
+                        $page_url_domain = $_SERVER['HTTP_REFERER'];
+                    }
+                    else
+                    {
+                        $page_url_domain = $_SERVER['HTTP_REFERER'] . "?domain=" . $value;
+                    }
             ?>
             
             <div class="jumbotron">
