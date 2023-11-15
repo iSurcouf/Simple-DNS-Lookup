@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Simple PHP script to lookup entries of A, AAAA, NS, MX, SOA and TXT records">
+        <meta name="description" content="Simple PHP script to lookup entries of A, AAAA, NS, CNAME, MX, SOA and TXT records">
         <meta name="author" content="HQWEB">
         <title>Simple DNS Lookup</title>
         <link rel="icon" href="assets/favicon.ico"><!-- https://www.iconperk.com/iconsets/magicons -->
@@ -60,6 +60,9 @@
                 
                 $dns_mx = dns_get_record($domain, DNS_MX);
                 $dns_mx_ttl = $dns_mx[0]['ttl'];
+
+                $dns_cname = dns_get_record($domain, DNS_CNAME);
+                $dns_cname_ttl = $dns_mx[0]['ttl'];
                 
                 $dns_soa = dns_get_record($domain, DNS_SOA);
                 $dns_soa_ttl = $dns_soa[0]['ttl'];
@@ -255,6 +258,41 @@
                         
                     </tr>
                     <!-- MX RECORD -->
+
+                    <!-- CNAME RECORD -->
+                    <tr>
+                        
+                        <td class="vert-align text-center"><h4><span class="label label-default">CNAME</span></h4></td>
+                        
+                        <?php if(empty($dns_cname) != null){ ?> <!-- IF NO CNAME RECORD -->
+                        
+                        <td class="vert-align text-center">NA</td>
+                        <td class="warning"><h4>No record</h4></td>
+                        
+                        <?php } else { ?> <!-- ELSE CNAME RECORD -->
+                        
+                        <td class="vert-align text-center"><?=$dns_cname_ttl?></td>
+                        <td class="success">
+                            <?php foreach($dns_cname as $value)
+                                {
+                                    echo "<h4>";
+                                    echo($value['target']);
+                                    echo " (";
+                                    $ipapi = file_get_contents('http://ip-api.com/json/' . gethostbyname($value['target']) . '?fields=2');
+                                    $ipapidc = json_decode($ipapi, true);
+                                    $country_code_flag = $ipapidc['countryCode']; // Uppercase
+                                    echo mb_convert_encoding( '&#' . ( 127397 + ord( $country_code_flag[0] ) ) . ';', 'UTF-8', 'HTML-ENTITIES');
+                                    echo mb_convert_encoding( '&#' . ( 127397 + ord( $country_code_flag[1] ) ) . ';', 'UTF-8', 'HTML-ENTITIES');
+                                    echo(" " . $ipapidc['countryCode'] . " · " . gethostbyname($value['target']));
+                                    echo ")</h4>";
+                                }
+                            ?>
+                        </td>
+                        
+                        <?php } ?> <!-- ENDIF CNAME RECORD -->
+                        
+                    </tr>
+                    <!-- CNAME RECORD -->
                     
                     <!-- SOA RECORD -->
                     <tr>
