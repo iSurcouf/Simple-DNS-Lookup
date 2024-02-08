@@ -85,7 +85,7 @@ $domain = array_key_exists("host", $parsed_url) ? $parsed_url["host"] : $posted_
 $thisDomain = htmlspecialchars($_SERVER["HTTP_HOST"], ENT_QUOTES, "UTF-8");
 
 // Page URL : check if "?domain=" is in the URL to adapt http_referer content
-$page_url_domain = strpos($_SERVER["REQUEST_URI"], "?domain=") !== false ? $thisDomain : $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $thisDomain . "?domain=" . $posted_domain;
+$page_url_domain = strpos($_SERVER["REQUEST_URI"], "?domain=") !== false ? $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $thisDomain . $_SERVER["REQUEST_URI"] : $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $thisDomain . $_SERVER["REQUEST_URI"] . "?domain=" . $posted_domain;
 
 $formSubmitted = isset($_POST['submit']);
 
