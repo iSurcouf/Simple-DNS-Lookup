@@ -7,4 +7,6 @@ You can test the tool here : [https://zrr.us/x/dns-lookup/](https://zrr.us/x/dns
 
 Build on Bootstrap.
 
-![Simple DNS Lookup](https://outils.hqweb.com/dns-lookup/assets/preview.png)
+
+![Capture](https://github.com/dehlirious/Simple-DNS-Lookup/assets/25449483/075daf10-654e-4231-b960-1bae39d256fb)
+![Capture](https://github.com/dehlirious/Simple-DNS-Lookup/assets/25449483/0d0849cd-8ab7-48a6-b060-7753aac936c8)
