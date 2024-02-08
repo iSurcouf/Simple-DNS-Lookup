@@ -36,7 +36,7 @@ function generateDNSHtml($records, $type, $addLineBreak=1) {
 
 		// Check for specific keys and include them in the output based on the type
 		foreach ($record as $key => $value) {
-			if ($key !== 'host' && $key !== 'ttl') {
+			if ($key !== 'host' && $key !== 'ttl' && $key !== 'cpu') {
 				// Handle the Rname field separately
 				if ($key === 'rname') {
 					// Split the Rname into username and domain parts
