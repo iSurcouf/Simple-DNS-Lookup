@@ -4,8 +4,6 @@
 // ini_set('display_startup_errors', 1); // Uncomment to display errors
 // error_reporting(E_ALL); // Uncomment to display errors
 
-<?php
-
 
 // Function to validate domain
 function isValidDomain($domain) {
