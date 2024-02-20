@@ -153,7 +153,7 @@ if ($domain) {
 // Page URL : check if "?domain=" is in the URL to adapt http_referer content
 $page_url_domain = strpos($_SERVER["REQUEST_URI"], "?domain=") !== false ? $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $thisDomain . $_SERVER["REQUEST_URI"] : $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $thisDomain . $_SERVER["REQUEST_URI"] . "?domain=" . $posted_domain;
 
-$forbiddenDomains = ['zrr.us'];
+$forbiddenDomains = [$_SERVER['HTTP_HOST'],];
 $forbidden_domain = checkForbiddenDomain($domain, $forbiddenDomains);
 
 // Force $formSubmitted to be false if the domain is forbidden
