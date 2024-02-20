@@ -27,25 +27,6 @@ function extractPrimaryDomain($url) {
 	}
 }
 
-function isValidBase64($str) {
-	// Base64 encoding is generally 4 characters per 3 bytes, so padding may be needed
-	$decoded = base64_decode($str, true); // Set second argument to true to suppress warnings
-
-	if ($decoded === false) {
-		// Invalid Base64 string
-		return false;
-	}
-
-	// Check if the original string matches the re-encoded string
-	if (base64_encode($decoded) === $str) {
-		// Valid Base64 string
-		return true;
-	} else {
-		// Invalid Base64 string (possible padding issue)
-		return false;
-	}
-}
-
 
 function getDNS($domain, $type) {
 	$records = @dns_get_record($domain, $type);
